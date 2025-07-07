@@ -54,3 +54,11 @@ insert into users (id, name, pass) values ('test', '테스트', 'abcd');
 insert into users (id, name, pass) values ('admin', '관리자', 'abcd');
 insert into users (id, name, pass) values ('hong', '홍길동', password('abcd'));
 
+$id   / $pass
+xyz  1111
+xyz' or 2>1 -- 
+select * from users where id='$id' and pass='$pass' 
+
+select * from users where id='xyz' or 2>1 limit 1, 1 -- ' and pass='$pass';
+
+
