@@ -43,4 +43,14 @@ drop table members;
 alter database kpc character set = utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
-create table  
+create table  users (
+    idx integer auto_increment primary key,
+    id  char(20) unique,
+    name char(20),
+    pass char(50)
+);
+
+insert into users (id, name, pass) values ('test', '테스트', 'abcd');
+insert into users (id, name, pass) values ('admin', '관리자', 'abcd');
+insert into users (id, name, pass) values ('hong', '홍길동', password('abcd'));
+
