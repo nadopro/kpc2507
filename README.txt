@@ -38,6 +38,9 @@ INSERT INTO members (id, name, age) VALUES
 ('admin', '관리자', 12),
 ('user', '사용자', 23);
 
+drop table members;
+
+alter database kpc character set = utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 create table  
