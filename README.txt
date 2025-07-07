@@ -12,3 +12,8 @@ sslee	이순신	52
 chatgpt	지피티	40
 gemini	제미나이	61
 copilot	코파일럿	27
+
+
+http://localhost:9000
+
+http://localhost:9000/phpmyadmin
