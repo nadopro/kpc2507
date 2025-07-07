@@ -62,3 +62,28 @@ select * from users where id='$id' and pass='$pass'
 select * from users where id='xyz' or 2>1 limit 1, 1 -- ' and pass='$pass';
 
 
+X로 된 약어
+
+X = Ex
+Windows XP 
+XML = eXtensible Markup Language
+DX : Digital Transformation
+
+X = tran 
+X = Cross
+
+HTML : HyperText Markup Language
+
+<br>태그는 줄바꿈할때 씁니다.
+
+<>
+
+< : &lt;
+> : &gt;
+
+w3schools.com
+
+
+size
+
+xs -  sm  - md - lg - xlg
