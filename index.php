@@ -65,6 +65,7 @@ $cmd = $_GET['cmd'] ?? '';
                 <li><a class="dropdown-item" href="index.php?cmd=brute2">무차별대입2</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=fake">fake data</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=dice">주사위</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=chart">차트</a></li>
               </ul>
             </li>
 

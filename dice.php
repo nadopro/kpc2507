@@ -37,6 +37,45 @@
             </div>
         </div>
 
+         
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['주사위번호', '출현횟수'],
+          <?php
+            for($i=1; $i<=6; $i++)
+            {
+                // ['1', 13],
+                echo "['dice$i', $dice[$i] ],";
+            }
+          ?>
+        ]);
+
+        var options = {
+          title: '주사위 출현 빈도',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('kpc_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  
+    <div class="row">
+      <div class="col" id="kpc_chart" style="width: 100%; height: 500px">
+
+      </div>
+    </div>
+
+
+
+
         <?php
     }
 ?>
