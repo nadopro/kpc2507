@@ -429,3 +429,15 @@ if ($row = mysqli_fetch_assoc($result)) {
 }
 ?>
 
+Q8.
+
+index.php?cmd=shell 을 수행할 때, 
+include "shell.php"가 수행되는데,
+shell.php에서는 웹 쉘을 구현하고 싶어.
+구조는 첨부한 그림과 같은 형태야.
+맨 앞에 "명령" 출력하고, 옆에 명령을 입력받아(name=command)
+실행 버튼을 클릭하면, 하단에 web shell을 수행하고 싶어.
+
+그런데 웹쉘을 수행할 때, 한글이 깨지는 문제가 있는데,
+한글 인코딩은 utf-8로 인코딩해서, **한글이 깨지지 않도록**
+코드에 특히 관심을 두고 작성해 줘.
