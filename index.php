@@ -1,2 +1,113 @@
-안녕하세요?
-보안 강의 홈페이지입니다.
+<?php
+// index.php
+$cmd = $_GET['cmd'] ?? '';
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5 기본</title>
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    /* 선택적: 표 형태 라인 표시용 */
+    .colLine {
+      line-height: 180%;
+      min-height: 30px;
+      border-bottom: 1px dotted #DDDDDD;
+      padding: 4px 0;
+    }
+  </style>
+</head>
+
+<!-- flexbox로 스티키 푸터 구현 -->
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- ── Navigation Bar ─────────────────────────── -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.php">홈페이지</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNav"
+          aria-controls="topNav" aria-expanded="false" aria-label="메뉴 열기">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="topNav" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+
+            <!-- 홈 -->
+            <li class="nav-item">
+              <a class="nav-link" href="index.php">홈</a>
+            </li>
+
+            <!-- 메뉴1 -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="menu1" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">메뉴 1</a>
+              <ul class="dropdown-menu" aria-labelledby="menu1">
+                <li><a class="dropdown-item" href="index.php?cmd=menu1-1">메뉴 1-1</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=menu1-2">메뉴 1-2</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=menu1-3">메뉴 1-3</a></li>
+              </ul>
+            </li>
+
+            <!-- 메뉴2 -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="menu2" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">메뉴 2</a>
+              <ul class="dropdown-menu" aria-labelledby="menu2">
+                <li><a class="dropdown-item" href="index.php?cmd=menu2-1">메뉴 2-1</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=menu2-2">메뉴 2-2</a></li>
+              </ul>
+            </li>
+
+            <!-- 메뉴3 -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="menu3" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">메뉴 3</a>
+              <ul class="dropdown-menu" aria-labelledby="menu3">
+                <li><a class="dropdown-item" href="index.php?cmd=menu3-1">메뉴 3-1</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=menu3-2">메뉴 3-2</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ── Main Content ───────────────────────────── -->
+  <main class="flex-fill container my-4">
+
+<?php
+  // ① cmd 파라미터가 없으면 init.php
+  if ($cmd === '') {
+      include 'init.php';
+
+  // ② cmd가 있으면 같은 이름의 php 파일 포함
+  } else {
+      // 보안: 디렉터리 탈출 방지
+      $file = basename($cmd) . '.php';
+      if (is_file($file)) {
+          include $file;
+      } else {
+          echo '<div class="alert alert-danger">요청하신 페이지를 찾을 수 없습니다.</div>';
+      }
+  }
+?>
+
+  </main>
+
+  <!-- ── Footer (Sticky) ────────────────────────── -->
+  <footer class="bg-light text-center py-3 mt-auto">
+    한국생산성본부 보안 프로그래밍 과정
+  </footer>
+
+</body>
+</html>

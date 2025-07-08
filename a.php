@@ -33,11 +33,19 @@
                 $age = 13;
                 echo "age = $age<br>";
 
+                include "b.php";
+                echo "age = $age<br>";
+
                 for($i=1; $i<=10; $i++)
                 {
                     echo "$i<br>";
                 }
             ?>
+
+            <form method="get">
+                <input type="text" name="id" class="form-control" placeholder="아이디입력">
+                <button type="submit" class="btn btn-primary">로그인</button>
+            </form>
 
         </div>
     </div>
