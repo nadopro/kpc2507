@@ -336,3 +336,18 @@ $cmd = $_GET['cmd'] ?? '';
 
 </body>
 </html>
+
+
+Q5
+
+index.php?cmd=injection 으로 접속하면
+injection.php가 include 되고 있어.
+이 파일을 만들어 줘.
+
+이 파일에서는 로그인하는 입력받는 창을 만들고 싶어.
+
+입력 값 : id (name = id), 비멀번호 : pass (name = pass)
+
+id에는 placeholder로 "아이디 입력"
+pass에는 "비밀번호 입력"으로 표시해 줘.
+하단에 로그인 버튼을 클릭하면 index.php?cmd=login으로 이동하도록 해줘.
