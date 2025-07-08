@@ -1,4 +1,9 @@
 <?php
+
+    include "db.php";
+
+    $conn = connectDB();
+
 // index.php
 $cmd = $_GET['cmd'] ?? '';
 ?>
