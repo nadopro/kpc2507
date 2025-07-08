@@ -59,7 +59,7 @@ $cmd = $_GET['cmd'] ?? '';
                 aria-expanded="false">공격테스트</a>
               <ul class="dropdown-menu" aria-labelledby="menu1">
                 <li><a class="dropdown-item" href="index.php?cmd=injection">SQL Injection</a></li>
-                <li><a class="dropdown-item" href="index.php?cmd=menu1-2">메뉴 1-2</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=injectionsafe">Safe Injection</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=menu1-3">메뉴 1-3</a></li>
               </ul>
             </li>
