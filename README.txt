@@ -191,3 +191,12 @@ Q2. init.php를 다음과 같이 작성하고 싶어.
 이 파일은 Carousel을 이용해서 이미지를 SlidingShow하고 싶어.
 사용하는 이미지는 img/la.jpg, img/chicago.jpg, img/ny.jpg 파일을
 이용해서 슬라이드 쇼하는 형태로 구성해 줘.
+
+Q3. 다음과 같이 db.php 파일을 만들어 줘.
+
+db name : kpc
+db user : kpc
+db pass : 1111
+
+connectDB()함수를 하나 정의해줘.
+이 함수는 접속후 접속한 $conn를 리턴하도록 만들어 줘.
