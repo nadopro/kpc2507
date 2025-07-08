@@ -200,3 +200,139 @@ db pass : 1111
 
 connectDB()함수를 하나 정의해줘.
 이 함수는 접속후 접속한 $conn를 리턴하도록 만들어 줘.
+
+Q4.
+index.php 파일이 아래와 같이 구성되어 있어.
+여기서 로그인 처리를 위해 세션처리르 하고 싶어.
+세션은 ./sess 폴더에 저장하고 싶어.
+
+로그인 정보를 sess_id, sess_name를 관리싶은데,
+아래코드의 메뉴 다음 줄에 로그인 정보를 표시하고 싶어.
+
+만약 로그인이 된 경우에는 sess_id을 이용해 판단하는데,
+홍길동님 <버튼>로그아웃</버튼>
+로그인이 안된 경우에는 <버튼>로그인</버튼>형태로 표시하고 싶어.
+그런데, 이 로그인 정보는 오른쪽 정렬을 하고 싶어.
+
+만약 로그아웃 버튼을 클릭하면 index.php?cmd=logout로 이동시켜줘.
+로그인 버튼을 클릭하면 index.php?>cmd=injection 로 이동하도록 코드를 만들어줘.
+
+
+<?php
+
+    include "db.php";
+
+    $conn = connectDB();
+
+// index.php
+$cmd = $_GET['cmd'] ?? '';
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5 기본</title>
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    /* 선택적: 표 형태 라인 표시용 */
+    .colLine {
+      line-height: 180%;
+      min-height: 30px;
+      border-bottom: 1px dotted #DDDDDD;
+      padding: 4px 0;
+    }
+  </style>
+</head>
+
+<!-- flexbox로 스티키 푸터 구현 -->
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- ── Navigation Bar ─────────────────────────── -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.php">홈페이지</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNav"
+          aria-controls="topNav" aria-expanded="false" aria-label="메뉴 열기">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="topNav" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+
+            <!-- 홈 -->
+            <li class="nav-item">
+              <a class="nav-link" href="index.php">홈</a>
+            </li>
+
+            <!-- 메뉴1 -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="menu1" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">공격테스트</a>
+              <ul class="dropdown-menu" aria-labelledby="menu1">
+                <li><a class="dropdown-item" href="index.php?cmd=injection">SQL Injection</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=menu1-2">메뉴 1-2</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=menu1-3">메뉴 1-3</a></li>
+              </ul>
+            </li>
+
+            <!-- 메뉴2 -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="menu2" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">메뉴 2</a>
+              <ul class="dropdown-menu" aria-labelledby="menu2">
+                <li><a class="dropdown-item" href="index.php?cmd=menu2-1">메뉴 2-1</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=menu2-2">메뉴 2-2</a></li>
+              </ul>
+            </li>
+
+            <!-- 메뉴3 -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="menu3" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">메뉴 3</a>
+              <ul class="dropdown-menu" aria-labelledby="menu3">
+                <li><a class="dropdown-item" href="index.php?cmd=menu3-1">메뉴 3-1</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=menu3-2">메뉴 3-2</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ── Main Content ───────────────────────────── -->
+  <main class="flex-fill container my-4">
+
+<?php
+  // ① cmd 파라미터가 없으면 init.php
+  if ($cmd === '') {
+      include 'init.php';
+
+  // ② cmd가 있으면 같은 이름의 php 파일 포함
+  } else {
+      // 보안: 디렉터리 탈출 방지
+      $file = basename($cmd) . '.php';
+      if (is_file($file)) {
+          include $file;
+      } else {
+          echo '<div class="alert alert-danger">요청하신 페이지를 찾을 수 없습니다.</div>';
+      }
+  }
+?>
+
+  </main>
+
+  <!-- ── Footer (Sticky) ────────────────────────── -->
+  <footer class="bg-light text-center py-3 mt-auto">
+    한국생산성본부 보안 프로그래밍 과정
+  </footer>
+
+</body>
+</html>

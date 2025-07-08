@@ -1,4 +1,7 @@
 <?php
+    session_save_path(__DIR__ . '/sess');   // ./sess 폴더에 저장
+    if (!is_dir(__DIR__ . '/sess')) mkdir(__DIR__ . '/sess', 0700, true);
+    session_start();
 
     include "db.php";
 
@@ -85,6 +88,18 @@ $cmd = $_GET['cmd'] ?? '';
         </div>
       </div>
     </nav>
+
+    <!-- ── 로그인 상태 표시줄 ────────────────────── -->
+    <div class="bg-light">
+      <div class="container py-2 d-flex justify-content-end align-items-center">
+        <?php if (isset($_SESSION['sess_id'])): ?>
+          <span class="me-2 fw-semibold"><?= htmlspecialchars($_SESSION['sess_name'] ?? '사용자') ?>님</span>
+          <a href="index.php?cmd=logout" class="btn btn-sm btn-outline-secondary">로그아웃</a>
+        <?php else: ?>
+          <a href="index.php?cmd=injection" class="btn btn-sm btn-primary">로그인</a>
+        <?php endif; ?>
+      </div>
+    </div>
   </header>
 
   <!-- ── Main Content ───────────────────────────── -->
