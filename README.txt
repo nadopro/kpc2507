@@ -351,3 +351,35 @@ injection.php가 include 되고 있어.
 id에는 placeholder로 "아이디 입력"
 pass에는 "비밀번호 입력"으로 표시해 줘.
 하단에 로그인 버튼을 클릭하면 index.php?cmd=login으로 이동하도록 해줘.
+
+Q6.
+
+이번에는 login.php 파일을 만들려고 해.
+index.php?cmd=login으로 접속했으니,
+index.php에서 이미 세션처리와, DB접속 작업을 수행했어.
+
+$conn = connectDB() 이렇게 수행했더.
+
+그런데, post로 넘어온 id, pass를 이용해서 로그인할거야.
+
+로그인을 위한 테이블이 다음과 같아.
+
+create table  users (
+    idx integer auto_increment primary key,
+    id  char(20) unique,
+    name char(20),
+    pass char(50)
+);
+
+sql injection 테스트를 위해 보안을 고려하지 않고, 아이디와 비번을 검사한후
+로그인 처리하는 코드를 만들어 줘.
+
+로그인이 되면 세션에 sess_id, sess_name 값을 세팅해 줘야 해.
+
+로그인 성공한 경우에는 
+"홍길동님 반갑습니다." 와 같이 세션 이름(sess_name)으로 alert창으로 띄운 후,
+index.php로 이동해
+
+실패하는 경우에는 "아이디와 비밀번호를 확인하세요"라고 alert해 주고
+
+index.php?cmd=injection 으로 이동 시켜줘.
