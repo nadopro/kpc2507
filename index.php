@@ -61,6 +61,10 @@ $cmd = $_GET['cmd'] ?? '';
                 <li><a class="dropdown-item" href="index.php?cmd=injection">SQL Injection</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=injectionsafe">Safe Injection</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=shell">웹 쉘</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=brute">무차별대입</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=shell">웹 쉘</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=shell">웹 쉘</a></li>
+
               </ul>
             </li>
 
