@@ -48,9 +48,9 @@ $cmd = $_GET['cmd'] ?? '';
             <!-- 메뉴1 -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="menu1" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">메뉴 1</a>
+                aria-expanded="false">공격테스트</a>
               <ul class="dropdown-menu" aria-labelledby="menu1">
-                <li><a class="dropdown-item" href="index.php?cmd=menu1-1">메뉴 1-1</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=injection">SQL Injection</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=menu1-2">메뉴 1-2</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=menu1-3">메뉴 1-3</a></li>
               </ul>

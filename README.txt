@@ -124,7 +124,12 @@ xs -  sm  - md - lg - xlg
 
 localhost:9000/index.php?cmd=test
 
- 1. Homepage 구조 잡기
+javascript:alert(document.cookie);
+
+비밀번호의 취약성 확인(맨 뒤의 슬래쉬 포함되어야 함)
+https://www.security.org/how-secure-is-my-password/
+
+ Q1. Homepage 구조 잡기
 
  다음과 같은 형태의 홈페이지를 작성하려고 해.
  - HTML5와 Bootstrap5를 이용해 홈페이지 제작
@@ -182,3 +187,7 @@ localhost:9000/index.php?cmd=test
 </body>
 </html>
 
+Q2. init.php를 다음과 같이 작성하고 싶어.
+이 파일은 Carousel을 이용해서 이미지를 SlidingShow하고 싶어.
+사용하는 이미지는 img/la.jpg, img/chicago.jpg, img/ny.jpg 파일을
+이용해서 슬라이드 쇼하는 형태로 구성해 줘.
