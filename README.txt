@@ -598,3 +598,30 @@ Q11.
     PRIMARY KEY (idx),
     KEY idx_bid_time (bid, notice DESC, time DESC)   -- 게시판별/공지 우선/최신순 조회용
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+Q12.
+이렇게 만들어진 테이블에 다음과 같은 데이터를 넣을 수 있는 스크립트를 작성해 줘.
+
+게시글 1
+bid : 1
+title : 자유게시판 게시글 1
+id : admin
+name : 관리자
+html : 자유게시판 게시글 1 테스트입니다.
+notice : 0
+time: now()
+
+게시글 2
+bid : 2
+title : QnA 게시글 1
+id : admin
+name : 관리자
+html : QnA 게시글 1 테스트입니다.
+notice : 0
+time: now()
+
+
+INSERT INTO bbs (bid, title, id, name, html, notice, time) VALUES
+(1, '자유게시판 게시글 1', 'admin', '관리자', '자유게시판 게시글 1 테스트입니다.', 0, NOW()),
+(2, 'QnA 게시글 1',      'admin', '관리자', 'QnA 게시글 1 테스트입니다.',      0, NOW());
