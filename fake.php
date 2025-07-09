@@ -29,10 +29,12 @@ $name3 = "하,민,구,훈,우,림,태,은,정,선,근,석,영,한,광,성,우,�
             <?php
                 for($i=1; $i <=$count ; $i++)
                 {
+                    // ,단위로 쪼개서 배열에 담기
                     $split1 = explode(",", $name1);
                     $split2 = explode(",", $name2);
                     $split3 = explode(",", $name3);
 
+                    // 배열의 크기에 맞게 0 ~ count-1의 랜덤값 뽑기
                     $r1 = rand(0, count($split1)-1);
                     $r2 = rand(0, count($split2)-1);
                     $r3 = rand(0, count($split3)-1);
@@ -41,6 +43,7 @@ $name3 = "하,민,구,훈,우,림,태,은,정,선,근,석,영,한,광,성,우,�
                     $n2 = $split2[$r2];
                     $n3 = $split3[$r3];
 
+                    // .은 php에서 문자열 합치기
                     $name = $n1 . $n2 . $n3;
 
                     echo "
