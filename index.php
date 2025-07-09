@@ -72,10 +72,10 @@ $cmd = $_GET['cmd'] ?? '';
             <!-- 메뉴2 -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="menu2" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">메뉴 2</a>
+                aria-expanded="false">게시판</a>
               <ul class="dropdown-menu" aria-labelledby="menu2">
-                <li><a class="dropdown-item" href="index.php?cmd=menu2-1">메뉴 2-1</a></li>
-                <li><a class="dropdown-item" href="index.php?cmd=menu2-2">메뉴 2-2</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=bbs&bid=1">자유게시판</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=bbs&bid=2">QnA</a></li>
               </ul>
             </li>
 

@@ -540,3 +540,61 @@ close();
 석,연,윤,인,정,효,석,영,소,호,진,택,대,미,민,상,영,예,중,지,찬,학,현,재,종,기,동,은,홍,선,혜,용,상,창,덕,윤,건,표,태,영,승,종,박
 이름3
 하,민,구,훈,우,림,태,은,정,선,근,석,영,한,광,성,우,호,재,연,조,임,진,훈,길,석,복,정,준,진,민,진,혜,헌,수,미,하,규,아,은,현,숙,빈,옥,태,식,자,엽,일,랑,섭,국,만,섭,기,혁,애,완,주,란,홍
+
+int copy(char *str)
+{
+  char buf[100];
+  bzero(buf, sizeof(buf));
+
+  return -1;
+  strcpy(buf, str);
+  printf("buf = %s\n", buf);
+
+  return 1;
+}
+
+0                   99    8         4      4
++--------------------+---------+-------+-------+
+                                 EBP     Return Address
+
+./run $(python { print("A"* 100 + "B" * 30) })
+int main(int argc, char **argv)
+{
+  if(copy(argv[1]) <0)
+  {
+    printf("Error\n");
+  }
+
+  return 0;
+}
+
+https://www.daum.net/
+
+Q11. 
+
+자유게시판, QnA게시판을 위해 데이터베이스 스키마를 정의하려고 해.
+테이블 이름 : bbs
+테이블 구성:
+  idx: 게시글의 키 값, 자동증가
+  bid : 게시판의 종류를 구분, 1(자유게시판), 2(QnA 게시판)
+  title : 게시글의 제목
+  id : 사용자 아이디
+  name : 작성자 이름
+  html : 게시글 내용
+  notice : 공지사항 여부, 0(공지사항 아님), 1(공지사항)
+  time : 작성일, 시간 datetime
+
+
+  CREATE TABLE bbs (
+    idx      INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '게시글 PK',
+    bid      TINYINT UNSIGNED NOT NULL DEFAULT 1 COMMENT '게시판 종류: 1=자유, 2=QnA',
+    title    VARCHAR(150)  NOT NULL COMMENT '제목',
+    id       VARCHAR(20)   NOT NULL COMMENT '작성자 아이디',
+    name     VARCHAR(20)   NOT NULL COMMENT '작성자 이름',
+    html     MEDIUMTEXT    NOT NULL COMMENT '글 내용 (HTML 허용)',
+    notice   TINYINT(1)    NOT NULL DEFAULT 0 COMMENT '공지 여부: 1=공지',
+    time     DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '작성 일시',
+
+    PRIMARY KEY (idx),
+    KEY idx_bid_time (bid, notice DESC, time DESC)   -- 게시판별/공지 우선/최신순 조회용
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
