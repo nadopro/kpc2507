@@ -10,6 +10,11 @@
 
 // index.php
 $cmd = $_GET['cmd'] ?? '';
+
+echo urldecode($_SERVER["QUERY_STRING"]);
+echo "<br><br>";
+echo "IP = " . $_SERVER["REMOTE_ADDR"] . "<br>";
+
 ?>
 <!DOCTYPE html>
 <html lang="ko">

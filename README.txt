@@ -831,3 +831,14 @@ age,
   3. github에 있는 data.zip 파일을 다운받아서
     c:\xampp\mysql\data 폴더로 풀기
   4. xmapp control panel 에서 MySQL 실행
+
+
+  create table log (
+    idx integer auto_increment primary key,
+    id    char(20),
+    work  char(255),
+    
+    ip    char(20),
+    time  datetime
+
+  );
