@@ -54,9 +54,19 @@ $cmd = $_GET['cmd'] ?? '';
     $_SESSION['sess_id'] = "";
   $userid = $_SESSION['sess_id'];
 
-  $sql = "INSERT INTO log (id, work, ip, time)
+  if(!isset($_SESSION['sess_level']))
+  {
+    $_SESSION['sess_level'] = 0;
+  }
+
+  //if($_SESSION['sess_level'] < $adminLevel)
+  if($cmd != "manLog")
+  {
+    $sql = "INSERT INTO log (id, work, ip, time)
             values('$userid', '$works', '$ipaddress', now())";
-  $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql);
+  }
+  
   
 ?>
 <!-- flexbox로 스티키 푸터 구현 -->
