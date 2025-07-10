@@ -76,6 +76,7 @@ $cmd = $_GET['cmd'] ?? '';
               <ul class="dropdown-menu" aria-labelledby="menu2">
                 <li><a class="dropdown-item" href="index.php?cmd=bbs&bid=1">자유게시판</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=bbs&bid=2">QnA</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=graph">JSON 시각화</a></li>
               </ul>
             </li>
 

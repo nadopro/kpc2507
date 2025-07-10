@@ -68,9 +68,9 @@ elseif ($mode === 'dbWrite') {
     $html   = $_POST['html'] ?? '';
     $notice = isset($_POST['notice']) ? 1 : 0;
 
-    $title  = addslashes($title);
-    $name   = addslashes($name);
-    $html   = addslashes($html);
+    //$title  = addslashes($title);
+    //$name   = addslashes($name);
+    //$html   = addslashes($html);
 
     $sql = "INSERT INTO bbs (bid, title, id, name, html, notice, time) VALUES ($bid, '$title', '$id', '$name', '$html', $notice, NOW())";
     mysqli_query($conn, $sql);
