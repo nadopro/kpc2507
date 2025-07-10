@@ -10,6 +10,28 @@
         <?php
         exit();
     }
-?>
 
-aaa
+    if(isset($_GET["type"]))
+        $type = $_GET["type"];
+    else
+        $type = 1;
+
+        
+    if($type == 1)
+        $type1Mark = "active";
+    else
+        $type1Mark = "";
+
+    if($type == 2)
+        $type2Mark = "active";
+    else
+        $type2Mark = "";
+?>
+<div class="row">
+    <div class="col text-center">
+        <ul class="pagination">
+        <li class="page-item <?php echo $type1Mark?>" ><a class="page-link" href="index.php?cmd=manLog&type=1">그래프</a></li>
+        <li class="page-item <?php echo $type2Mark?>" ><a class="page-link" href="index.php?cmd=manLog&type=2">표</a></li>
+        </ul>
+    </div>
+</div>
