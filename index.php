@@ -3,6 +3,7 @@
     if (!is_dir(__DIR__ . '/sess')) mkdir(__DIR__ . '/sess', 0700, true);
     session_start();
 
+    include "config.php";
     include "db.php";
 
     $conn = connectDB();
@@ -15,7 +16,7 @@ $cmd = $_GET['cmd'] ?? '';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap 5 기본</title>
+  <title><?php echo $windowTitle?></title>
 
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -85,14 +86,22 @@ $cmd = $_GET['cmd'] ?? '';
             </li>
 
             <!-- 메뉴3 -->
+            <?php
+              if(isset($_SESSION['sess_level']) and $_SESSION['sess_level'] >= $adminLevel)
+              {
+            ?>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="menu3" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">메뉴 3</a>
+                aria-expanded="false">관리자 메뉴</a>
               <ul class="dropdown-menu" aria-labelledby="menu3">
                 <li><a class="dropdown-item" href="index.php?cmd=menu3-1">메뉴 3-1</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=menu3-2">메뉴 3-2</a></li>
               </ul>
             </li>
+
+            <?php
+              }
+            ?>
 
           </ul>
         </div>

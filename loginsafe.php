@@ -29,7 +29,8 @@ if ($row = mysqli_fetch_assoc($result)) {
     // ── 로그인 성공 ──
     $_SESSION['sess_id']   = $row['id'];   // 세션에 아이디 저장
     $_SESSION['sess_name'] = $row['name']; // 세션에 이름 저장
-
+    $_SESSION['sess_level'] = $row['level'];
+    
     $name = htmlspecialchars($row['name']);
     echo "<script>alert('{$name}님 반갑습니다.'); location.href='index.php';</script>";
     exit;

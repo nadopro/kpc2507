@@ -822,3 +822,5 @@ age,
 
 
   alter table users add level integer default '1';
+  alter table users change level newlevel integer default '3';
+  alter table users drop newlevel;
