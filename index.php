@@ -90,14 +90,14 @@ $cmd = $_GET['cmd'] ?? '';
               if(isset($_SESSION['sess_level']) and $_SESSION['sess_level'] >= $adminLevel)
               {
             ?>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="menu3" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">관리자 메뉴</a>
-              <ul class="dropdown-menu" aria-labelledby="menu3">
-                <li><a class="dropdown-item" href="index.php?cmd=menu3-1">메뉴 3-1</a></li>
-                <li><a class="dropdown-item" href="index.php?cmd=menu3-2">메뉴 3-2</a></li>
-              </ul>
-            </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="menu3" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">관리자 메뉴</a>
+                  <ul class="dropdown-menu" aria-labelledby="menu3">
+                    <li><a class="dropdown-item" href="index.php?cmd=manLog">로그관리</a></li>
+                    <li><a class="dropdown-item" href="index.php?cmd=menu3-2">메뉴 3-2</a></li>
+                  </ul>
+                </li>
 
             <?php
               }
