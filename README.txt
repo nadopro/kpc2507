@@ -782,3 +782,11 @@ age:12
   또, 그래프가 고정되지 않고, 마우스의 오른쪽 마우스를 클릭한 후 이동이 가능하도록
   만들고 싶어.
   
+
+  Create table iot (
+    idx integer auto_increment primary key,
+    sensor integer default '1',
+    temp  float,
+    hum   float,
+    time  datetime
+  );
