@@ -11,10 +11,7 @@
 // index.php
 $cmd = $_GET['cmd'] ?? '';
 
-echo urldecode($_SERVER["QUERY_STRING"]);
-echo "<br><br>";
-echo "IP = " . $_SERVER["REMOTE_ADDR"] . "<br>";
-
+// phpinfo();
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -38,6 +35,30 @@ echo "IP = " . $_SERVER["REMOTE_ADDR"] . "<br>";
   </style>
 </head>
 
+<?php
+  // log 수집
+
+  $ipaddress = $_SERVER["REMOTE_ADDR"];
+
+  // ip 주소를 랜덤하게 생성하기
+  $ip1 = rand(1, 254);
+  $ip2 = rand(1, 254);
+  $ip3 = rand(1, 254);
+  $ip4 = rand(1, 254);
+
+  $ipaddress = "$ip1.$ip2.$ip3.$ip4";
+
+
+  $works = urldecode($_SERVER["QUERY_STRING"]);
+  if(!isset($_SESSION['sess_id']))
+    $_SESSION['sess_id'] = "";
+  $userid = $_SESSION['sess_id'];
+
+  $sql = "INSERT INTO log (id, work, ip, time)
+            values('$userid', '$works', '$ipaddress', now())";
+  $result = mysqli_query($conn, $sql);
+  
+?>
 <!-- flexbox로 스티키 푸터 구현 -->
 <body class="d-flex flex-column min-vh-100">
 
