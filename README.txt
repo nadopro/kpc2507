@@ -790,3 +790,27 @@ age:12
     hum   float,
     time  datetime
   );
+
+Q15
+
+  sensor.php파일을 만들려고 해.
+  index.php?cmd=sensor 로 접근하면 sensor.php를 include하는 구조야.
+  index.php에서 DB 접속은 마친 상태라, 데이터베이스를 바로 사용할 수 있어.
+
+  3초마다 온도와 습도를 %.1f 형태로 수집해 float값을 DB에 저장할거야.
+  이를 위해 사용하는 테이블은 다음과 같아.
+
+    Create table iot (
+    idx integer auto_increment primary key,
+    sensor integer default '1',
+    temp  float,
+    hum   float,
+    time  datetime
+  );
+
+  sensor는 센서를 구분하는 정보인데 항상 1번을 사용할 거야.
+  temp는 온도인데 30~32도 사이의 랜덤한 값을 생성하고 싶어.
+  hum은 습도인데 70-75% 사이의 랜덤한 값을 생성하고 싶어.
+  time은 now()를 이용해 현재시간을 넣는 코드를 만들어 줘.
+
+  query를 할 때는 mysqli_query()를 사용하고 싶어.
