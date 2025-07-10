@@ -102,6 +102,44 @@
         <?php
     }else
     {
+        $sql = "select * from log order by idx desc limit 50 ";
+        $result = mysqli_query($conn, $sql);
+        $data = mysqli_fetch_array($result);
 
+        if($data)
+        {
+            ?>
+            <table class='table table-bordered'>
+                <tr>
+                    <td>IDX</td>
+                    <td>IP</td>
+                    <td>WHEN</td>
+                    <td>WORK</td>
+                    <td>ID</td>
+                    <td>FLAG</td>
+                    <td>ETC</td>
+                </tr>
+            <?php
+                while($data)
+                {
+                    ?>
+                    <tr>
+                        <td><?php echo $data['idx']?></td>
+                        <td><?php echo $data['ip']?></td>
+                        <td><?php echo $data['time']?></td>
+                        <td><?php echo $data['work']?></td>
+                        <td><?php echo $data['id']?></td>
+                        <td>KOREA</td>
+                        <td>ETC</td>
+                    </tr>
+                    <?php
+                    $data = mysqli_fetch_array($result);
+                }
+            ?>
+            </table>
+
+            <?php
+
+        }
     }
 ?>
