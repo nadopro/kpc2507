@@ -24,4 +24,11 @@ function connectDB(): mysqli
 
     return $conn;
 }
+
+    $prefix = "";
+    $users = $prefix . "users";
+    $log = "log";
+    $members = "members";
+
+
 ?>
