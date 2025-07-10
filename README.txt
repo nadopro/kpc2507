@@ -824,3 +824,10 @@ age,
   alter table users add level integer default '1';
   alter table users change level newlevel integer default '3';
   alter table users drop newlevel;
+
+
+  1. xampp control panel 에서 MySQL을 중지
+  2. c:\xampp\mysql\data 폴더를 data_old로 변경하고
+  3. github에 있는 data.zip 파일을 다운받아서
+    c:\xampp\mysql\data 폴더로 풀기
+  4. xmapp control panel 에서 MySQL 실행
