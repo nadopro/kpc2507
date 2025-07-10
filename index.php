@@ -78,7 +78,7 @@ $cmd = $_GET['cmd'] ?? '';
                 <li><a class="dropdown-item" href="index.php?cmd=bbs&bid=2">QnA</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=graph">JSON 시각화</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=sensor">온습도 센서</a></li>
-                <li><a class="dropdown-item" href="index.php?cmd=graph">JSON 시각화</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=monitor">센서 감시</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=graph">JSON 시각화</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=graph">JSON 시각화</a></li>
               </ul>
