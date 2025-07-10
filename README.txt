@@ -814,3 +814,11 @@ Q15
   time은 now()를 이용해 현재시간을 넣는 코드를 만들어 줘.
 
   query를 할 때는 mysqli_query()를 사용하고 싶어.
+
+id,
+pass,
+name,
+age,
+
+
+  alter table users add level integer default '1';
