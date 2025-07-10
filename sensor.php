@@ -16,3 +16,11 @@ if (mysqli_query($conn, $sql)) {
     echo "오류 발생: " . mysqli_error($conn);
 }
 ?>
+
+<script>
+    setTimeout(function(){
+        location.href='index.php?cmd=sensor';
+        }
+    , 3000);
+    </script>
+
