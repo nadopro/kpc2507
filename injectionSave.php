@@ -27,6 +27,19 @@
 </div>
 
 <script>
+  // base64 인코딩/디코딩 함수
+  function encodeBase64(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+
+  function decodeBase64(str) {
+    try {
+      return decodeURIComponent(escape(atob(str)));
+    } catch (e) {
+      return "";
+    }
+  }
+
   // 저장된 값이 있다면 로드
   window.onload = function () {
     const savedId = localStorage.getItem("saved_id");
@@ -36,8 +49,10 @@
       document.getElementById("id").value = savedId;
       document.getElementById("saveid").checked = true;
     }
+
     if (savedPass) {
-      document.getElementById("pass").value = savedPass;
+      const decrypted = decodeBase64(savedPass);
+      document.getElementById("pass").value = decrypted;
       document.getElementById("savepass").checked = true;
     }
   };
@@ -48,7 +63,6 @@
     const saveIdChecked = document.getElementById("saveid").checked;
     const savePassChecked = document.getElementById("savepass").checked;
 
-    // 유효성 검사
     if (id.length < 4) {
       alert("아이디는 최소 4글자 이상이어야 합니다.");
       return false;
@@ -66,11 +80,13 @@
     }
 
     if (savePassChecked) {
-      localStorage.setItem("saved_pass", pass);
+      const encrypted = encodeBase64(pass);
+      localStorage.setItem("saved_pass", encrypted);
     } else {
       localStorage.removeItem("saved_pass");
     }
 
-    return true; // 폼 제출 허용
+    return true;
   }
 </script>
+
