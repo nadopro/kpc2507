@@ -133,6 +133,7 @@ $cmd = $_GET['cmd'] ?? '';
                   <ul class="dropdown-menu" aria-labelledby="menu3">
                     <li><a class="dropdown-item" href="index.php?cmd=manLog">로그관리</a></li>
                     <li><a class="dropdown-item" href="index.php?cmd=sms">SMS</a></li>
+                    <li><a class="dropdown-item" href="index.php?cmd=ftp">FTP</a></li>
                   </ul>
                 </li>
 
