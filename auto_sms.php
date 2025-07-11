@@ -2,14 +2,17 @@
 
      /******************** 인증정보 ********************/
      $sms_url = "https://sslsms.cafe24.com/sms_sender.php"; // 전송요청 URL
-     $sms['user_id'] = base64_encode($SMSID); //SMS 아이디.
-     $sms['secure'] = base64_encode($SECURENO) ;//인증키
-     $sms['msg'] = base64_encode(stripslashes($SendingMsg));
+     $sms['user_id'] = base64_encode($smsid); //SMS 아이디.
+     $sms['secure'] = base64_encode($smskey) ;//인증키
+     $sms['msg'] = base64_encode(stripslashes($memo));
 
-     $sms['rphone'] = base64_encode($ReceiveMobile); // 010-1234-5678
-     $sms['sphone1'] = base64_encode("010");
-     $sms['sphone2'] = base64_encode("1111"); // 인증된 전송 번호
-     $sms['sphone3'] = base64_encode("1111"); // 인증된 전송 번호 (예: 강의자 전화번호)
+     $sms['rphone'] = base64_encode($receiver); // 010-1234-5678
+     
+     $splitSender = explode("-", $smssender);
+     
+     $sms['sphone1'] = base64_encode($splitSender[0]);
+     $sms['sphone2'] = base64_encode($splitSender[1]); // 인증된 전송 번호
+     $sms['sphone3'] = base64_encode($splitSender[2]); // 인증된 전송 번호 (예: 강의자 전화번호)
 
 
      if(!isset($_POST['rdate']))
@@ -29,7 +32,7 @@
  $sms['returnurl'] = base64_encode($_POST['returnurl']);
  $sms['testflag'] = base64_encode($_POST['testflag']);
  $sms['destination'] = strtr(base64_encode($_POST['destination']), '+/=', '-,');
- $returnurl = "http://localhost/index.php?cmd=smsresult";
+ $returnurl = "http://localhost:9000/index.php";
 
 
  if(!isset($_POST['repeatFlag']))
