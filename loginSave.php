@@ -15,6 +15,8 @@ if (session_status() === PHP_SESSION_NONE) {
 $id  = $_POST['id']  ?? '';
 $pass = $_POST['pass'] ?? '';
 
+$pass = base64_decode($pass);
+
 // ───────────────────────────────────────────────
 // 1) 아이디·비밀번호 검사 (보안 미적용)
 //    ※ 실습 목적: SQL Injection 테스트를 위해 그대로 문자열 삽입
@@ -33,7 +35,7 @@ if ($row = mysqli_fetch_assoc($result)) {
     exit;
 } else {
     // ── 로그인 실패 ──
-    echo "<script>alert('아이디와 비밀번호를 확인하세요'); location.href='index.php?cmd=injection';</script>";
+    echo "<script>alert('아이디와 비밀번호를 확인하세요'); location.href='index.php?cmd=injectionSave';</script>";
     exit;
 }
 ?>

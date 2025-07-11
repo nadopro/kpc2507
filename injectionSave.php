@@ -3,7 +3,7 @@
   <div class="col-md-6">
     <h3 class="mb-4">로그인</h3>
 
-    <form action="index.php?cmd=login" onSubmit="return checkErrorAndSave()" method="post">
+    <form action="index.php?cmd=loginSave" onSubmit="return checkErrorAndSave()" method="post">
       <div class="mb-3">
         <label for="id" class="form-label">아이디</label>
         <input type="text" class="form-control" name="id" id="id" placeholder="아이디 입력" required>
