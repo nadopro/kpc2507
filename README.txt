@@ -858,3 +858,48 @@ create table sms (
 
 sql = select count(*) as cnt from log WHERE time between now() and DATE_SUB(now(), INTERVAL 1 MINUTE)
 click = 0
+
+
+Q.16
+
+다음과 같이 로그인을 위한 코드가 있어.
+이 코드를 수정하고 싶은데, 
+submit버튼을 누르면 checkErrorAndSave()를 수행하려고 해.
+id와 pass는 4글자 이상인지를 검사하고,
+4글자보다 작으면, 입력된 아이디나 비번의 글자수가 너무 적다고 알려줘.
+만약 saveid, savepass 체크박스가 체크된 경우에는
+localStorage에 입력된 아이디와 비번을 저장하고 싶어.
+
+또, 저장된 경우에는 이 페이지에 왔을 때,
+저장된 id, pass를 입력창에 넣어주고,
+체크박스는 선택된 상태로 놓고 싶어.
+
+이렇게 동작하도록 코드를 수정해 줘.
+
+<!-- injection.php -->
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h3 class="mb-4">로그인</h3>
+
+    <form action="index.php?cmd=login" onSubmit="return checkErrorAndSave()" method="post">
+      <div class="mb-3">
+        <label for="id" class="form-label">아이디</label>
+        <input type="text" class="form-control" name="id" id="id" placeholder="아이디 입력" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="pass" class="form-label">비밀번호</label>
+        <input type="password" class="form-control" name="pass" id="pass" placeholder="비밀번호 입력" required>
+      </div>
+
+      <div class="mb-3">
+        <input type="checkbox" name="saveid"> ID저장 
+        <input type="checkbox" name="savepass"> PW저장 
+      </div>
+
+      <div class="text-end">
+        <button type="submit" class="btn btn-primary">로그인</button>
+      </div>
+    </form>
+  </div>
+</div>
