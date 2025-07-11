@@ -105,7 +105,7 @@
         echo "sql = $sql<br>";
         echo "click  = $clickCount";
 
-        if($clickCount >=10)
+        if($clickCount >=100)
         {
             // 이상 트래픽, 클릭이 많아짐.
 
@@ -121,6 +121,7 @@
                 $memo = "이상 트래픽 발생
 클릭이 급증합니다.";
 
+                $smstype = "auto";
                 include "auto_sms.php";
 
                 $sql = "insert into sms (mobile, memo, time)

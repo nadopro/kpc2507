@@ -47,6 +47,7 @@
 
         echo "rcv: $receiver, memo = $memo";
 
+        $smstype = "manual";
         include "auto_sms.php";
     }else
     {
