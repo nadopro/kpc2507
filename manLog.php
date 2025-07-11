@@ -145,7 +145,7 @@
         <?php
     }else
     {
-        $sql = "select * from log order by idx desc limit 50 ";
+        $sql = "select * from log order by idx desc limit 200 ";
         $result = mysqli_query($conn, $sql);
         $data = mysqli_fetch_array($result);
 
@@ -163,8 +163,42 @@
                     <td>ETC</td>
                 </tr>
             <?php
+
+                function ip2nation($ip) // 1.2.3.4
+                {
+                    $splitIP = explode(".", $ip);
+                    include ("ip_files/" . $splitIP[0] . ".php");
+
+                    $code = ($splitIP[0] * 256 * 256 * 256) 
+                            + ($splitIP[1] * 256 * 256)
+                            + ($splitIP[2] * 256)
+                            + $splitIP[3];
+                    
+                    foreach($ranges as $key => $value)
+                    {
+                        if($key <= $code)
+                        {
+                            if($ranges[$key][0] >= $code)
+                            {
+                                $nation = $ranges[$key][1];
+                                break;
+                            }
+                        }
+
+                        if(!isset($nation))
+                        {
+                            $nation = "noflag";
+                        }
+
+                        return $nation;
+                    }
+                    
+                }
+
                 while($data)
                 {
+                    $nation = ip2nation($data['ip']);
+                    $nationFlag = "<img src='flags/$nation.gif'>";
                     ?>
                     <tr>
                         <td><?php echo $data['idx']?></td>
@@ -172,7 +206,7 @@
                         <td><?php echo $data['time']?></td>
                         <td><?php echo $data['work']?></td>
                         <td><?php echo $data['id']?></td>
-                        <td>KOREA</td>
+                        <td><?php echo $nationFlag?></td>
                         <td>ETC</td>
                     </tr>
                     <?php
