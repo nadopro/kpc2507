@@ -971,3 +971,6 @@ if ($row = mysqli_fetch_assoc($result)) {
     exit;
 }
 ?>
+
+
+mysql_data.zip : 마지막 DB data
