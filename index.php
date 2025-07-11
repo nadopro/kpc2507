@@ -119,6 +119,7 @@ $cmd = $_GET['cmd'] ?? '';
                 <li><a class="dropdown-item" href="index.php?cmd=monitor">센서 감시</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=graph">JSON 시각화</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=editor">Editor</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=injectionSave">ID/PW</a></li>
               </ul>
             </li>
 
