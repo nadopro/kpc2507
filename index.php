@@ -22,6 +22,7 @@ $cmd = $_GET['cmd'] ?? '';
 
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <style>
@@ -117,7 +118,7 @@ $cmd = $_GET['cmd'] ?? '';
                 <li><a class="dropdown-item" href="index.php?cmd=sensor">온습도 센서</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=monitor">센서 감시</a></li>
                 <li><a class="dropdown-item" href="index.php?cmd=graph">JSON 시각화</a></li>
-                <li><a class="dropdown-item" href="index.php?cmd=graph">JSON 시각화</a></li>
+                <li><a class="dropdown-item" href="index.php?cmd=editor">Editor</a></li>
               </ul>
             </li>
 
