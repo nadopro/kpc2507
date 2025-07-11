@@ -27,7 +27,6 @@
 </div>
 
 <script>
-  // base64 인코딩/디코딩 함수
   function encodeBase64(str) {
     return btoa(unescape(encodeURIComponent(str)));
   }
@@ -40,7 +39,6 @@
     }
   }
 
-  // 저장된 값이 있다면 로드
   window.onload = function () {
     const savedId = localStorage.getItem("saved_id");
     const savedPass = localStorage.getItem("saved_pass");
@@ -58,11 +56,16 @@
   };
 
   function checkErrorAndSave() {
-    const id = document.getElementById("id").value.trim();
-    const pass = document.getElementById("pass").value.trim();
+    const idInput = document.getElementById("id");
+    const passInput = document.getElementById("pass");
+
+    const id = idInput.value.trim();
+    const pass = passInput.value.trim();
+
     const saveIdChecked = document.getElementById("saveid").checked;
     const savePassChecked = document.getElementById("savepass").checked;
 
+    // 유효성 검사
     if (id.length < 4) {
       alert("아이디는 최소 4글자 이상이어야 합니다.");
       return false;
@@ -72,7 +75,7 @@
       return false;
     }
 
-    // localStorage 저장
+    // 저장
     if (saveIdChecked) {
       localStorage.setItem("saved_id", id);
     } else {
@@ -80,13 +83,15 @@
     }
 
     if (savePassChecked) {
-      const encrypted = encodeBase64(pass);
-      localStorage.setItem("saved_pass", encrypted);
+      localStorage.setItem("saved_pass", encodeBase64(pass));
     } else {
       localStorage.removeItem("saved_pass");
     }
 
-    return true;
+    // ✅ 전송 전 암호화 (BurpSuite 노출 방지)
+    passInput.value = encodeBase64(pass);
+
+    return true; // 계속 제출 진행
   }
 </script>
 
