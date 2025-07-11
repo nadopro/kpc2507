@@ -184,14 +184,20 @@
                                 break;
                             }
                         }
-
-                        if(!isset($nation))
-                        {
-                            $nation = "noflag";
-                        }
-
-                        return $nation;
                     }
+
+                    if(!isset($nation))
+                    {
+                        $nation = "";
+                    }
+
+                    if(isset($nation) and $nation == "")
+                    {
+                        $nation = "noflag";
+                    }
+
+                    //echo "nation=$nation<br>";
+                    return $nation;
                     
                 }
 
