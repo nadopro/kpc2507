@@ -852,3 +852,6 @@ create table sms (
   memo    char(255),
   time  datetime
 );
+
+sql = select count(*) as cnt from log WHERE time between now() and DATE_SUB(now(), INTERVAL 1 MINUTE)
+click = 0

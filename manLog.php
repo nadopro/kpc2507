@@ -92,6 +92,48 @@
       </div>
     </div>
 
+    <?php
+        // 이상 트래픽을 탐지 (최근 1분 이내에 50번이상 클릭)
+        //      5분 이내에 메시지를 보낸 이력이 없으면 전송
+
+        $sql = "select count(*) as cnt from log 
+                WHERE time between  DATE_SUB(now(), INTERVAL 1 MINUTE) and now()";
+        $result = mysqli_query($conn, $sql);
+        $data = mysqli_fetch_array($result);
+        $clickCount  = $data['cnt'];
+
+        echo "sql = $sql<br>";
+        echo "click  = $clickCount";
+
+        if($clickCount >=10)
+        {
+            // 이상 트래픽, 클릭이 많아짐.
+
+            $sql = "select * from sms 
+                where time between DATE_SUB(now(), INTERVAL 5 MINUTE) and now()";
+            $result = mysqli_query($conn, $sql);
+            $dataCount = mysqli_num_rows($result);
+            echo "data Count = $dataCount<br>";
+
+            if($dataCount == 0)
+            {
+                $receiver = $adminMobile;
+                $memo = "이상 트래픽 발생
+클릭이 급증합니다.";
+
+                include "auto_sms.php";
+
+                $sql = "insert into sms (mobile, memo, time)
+                            values('$receiver', '$memo', now())";
+                $result = mysqli_query($conn, $sql);
+
+
+            }
+        }
+
+    ?>
+
+
     <script>
     setTimeout(function(){
         location.href='index.php?cmd=manLog&type=1';

@@ -115,12 +115,12 @@
  }
 
  if($nointeractive=="1" && ($Result!="success" && $Result!="Test Success!" && $Result!="reserved") ) {
-     echo "<script>alert('".$alert ."')</script>";
+     //echo "<script>alert('".$alert ."')</script>";
  }
  else if($nointeractive!="1") {
-     echo "<script>alert('".$alert ."')</script>";
+     //echo "<script>alert('".$alert ."')</script>";
  }
- echo "<script>location.href='".$returnurl."';</script>";
+ //echo "<script>location.href='".$returnurl."';</script>";
 
          
 ?>
