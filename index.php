@@ -132,7 +132,7 @@ $cmd = $_GET['cmd'] ?? '';
                     aria-expanded="false">관리자 메뉴</a>
                   <ul class="dropdown-menu" aria-labelledby="menu3">
                     <li><a class="dropdown-item" href="index.php?cmd=manLog">로그관리</a></li>
-                    <li><a class="dropdown-item" href="index.php?cmd=menu3-2">메뉴 3-2</a></li>
+                    <li><a class="dropdown-item" href="index.php?cmd=sms">SMS</a></li>
                   </ul>
                 </li>
 
