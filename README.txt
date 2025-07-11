@@ -4,6 +4,9 @@ download visual code
 
 https://github.com/nadopro/kpc2507
 
+참고용(Old)
+https://github.com/eurekasolution
+
 아이디	이름	나이
 aaaa	알파벳	34
 test	테스터	32
