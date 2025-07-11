@@ -842,3 +842,13 @@ age,
     time  datetime
 
   );
+
+
+sms 
+
+create table sms (
+  idx integer auto_increment primary key,
+  mobile  char(20),
+  memo    char(255),
+  time  datetime
+);
