@@ -46,6 +46,8 @@
         $memo = $_POST['smscontent'];
 
         echo "rcv: $receiver, memo = $memo";
+
+        include "auto_sms.php";
     }else
     {
         echo " 보내지 않음";
