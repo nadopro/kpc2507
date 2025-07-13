@@ -4,8 +4,8 @@
 
     $smsid = "smsfb";
     $smskey = "cd30cce0277e1d88154774288a300aaa";
-    $smssender = "010-3540-8848";
-    $adminMobile = "010-3540-8848";
+    $smssender = "010-1234-5678";
+    $adminMobile = "010-1234-5678";
     // naming rule
     // window_title
     // my_family_count
